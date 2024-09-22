@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores Amarillas para Ti</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #2E8B57; /* Fondo verde del campo */
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script>
+        function setup() {
+            createCanvas(windowWidth, windowHeight);
+            noLoop();
+        }
+
+        function draw() {
+            background('#2E8B57'); // Color del fondo del campo
+
+            // Dibujar flores amarillas en posiciones aleatorias
+            for (let i = 0; i < 100; i++) {
+                let x = random(width);
+                let y = random(height);
+                drawFlower(x, y);
+            }
+        }
+
+        function drawFlower(x, y) {
+            push();
+            translate(x, y);
+            stroke(255, 204, 0);
+            strokeWeight(2);
+            fill(255, 255, 102); // Color amarillo para los pétalos
+            for (let i = 0; i < 8; i++) {
+                ellipse(0, 10, 20, 40);
+                rotate(PI / 4);
+            }
+            fill(255, 153, 0); // Color del centro de la flor
+            ellipse(0, 0, 20, 20);
+            pop();
+        }
+    </script>
+</body>
+</html>
